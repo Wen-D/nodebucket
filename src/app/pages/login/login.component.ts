@@ -40,15 +40,18 @@ constructor(private fb: FormBuilder, private router: Router, private cookieServi
     console.log(empId);
 
     this.http.get('/api/employees/' + empId).subscribe(res => {
+      // if authenticates
       if (res['data'])
       {
         this.cookieService.set('session_user', empId, 1);
         this.router.navigate(['/']);
       }
+      // else
       else if (!(res['data']) && (res['httpCode'] === '200'))
       {
         this.openSnackBar('Invalid employeeId, please try again', 'WARNING');
       }
+      //
       else
       {
         this.openSnackBar(res['message'], 'ERROR');

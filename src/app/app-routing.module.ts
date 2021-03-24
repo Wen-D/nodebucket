@@ -12,6 +12,7 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './shared/auth.guard';
 
+// routes for auth guard
 const routes: Routes = [
   {
     path: '',
