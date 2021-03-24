@@ -10,6 +10,9 @@ const router = express.Router(); // defines routing variables
 const Employee = require ('../db-models/employee');
 const BaseResponse = require('../service/base-response');
 
+const { $ } = require('protractor');
+const { isNull } = require('util');
+
 //http://localhost:3000/api/employees/empId
 
 /***
@@ -56,5 +59,13 @@ const BaseResponse = require('../service/base-response');
   }
 
 })
+
+/**
+ * API: createTask
+ * Post request updates MongoDB collections
+ * Updates task arrays
+ */
+
+router.post('/:empId/tasks', async(req, res) => 
 
 module.exports = router;
